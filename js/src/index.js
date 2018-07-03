@@ -89,7 +89,8 @@ var loadedModules = [
     require("./GraphModel"),
     require("./Graph"),
     require("./Image"),
-    require("./ImageModel")
+    require("./ImageModel"),
+    require("./LineSelector")
 ];
 
 for (var i in loadedModules) {

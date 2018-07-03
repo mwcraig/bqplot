@@ -147,6 +147,19 @@ var LassoSelectorModel = TwoDSelectorModel.extend({
     }
 });
 
+var LineSelectorModel = TwoDSelectorModel.extend({
+
+    defaults: function() {
+        return _.extend(OneDSelectorModel.prototype.defaults(), {
+            _model_name: "LineSelectorModel",
+            _view_name: "LineSelector",
+           color: null,
+           selected_x: {},
+           selected_y: {}
+       });
+    }
+});
+
 module.exports = {
     SelectorModel: SelectorModel,
     OneDSelectorModel: OneDSelectorModel,
@@ -156,5 +169,6 @@ module.exports = {
     BrushIntervalSelectorModel: BrushIntervalSelectorModel,
     BrushSelectorModel: BrushSelectorModel,
     MultiSelectorModel: MultiSelectorModel,
-    LassoSelectorModel: LassoSelectorModel
+    LassoSelectorModel: LassoSelectorModel,
+    LineSelectorModel: LineSelectorModel
 };

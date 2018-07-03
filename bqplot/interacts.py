@@ -532,3 +532,31 @@ class LassoSelector(TwoDSelector):
 
     _view_name = Unicode('LassoSelector').tag(sync=True)
     _model_name = Unicode('LassoSelectorModel').tag(sync=True)
+
+
+@register_interaction('bqplot.LineSelector')
+class LineSelector(TwoDSelector):
+
+    """Lasso selector interaction.
+
+    This 2-D selector enables the user to select multiple sets of data points
+    by drawing lassos on the figure. A mouse-down starts drawing the lasso and
+    after the mouse-up the lasso is closed and the `selected` attribute of each
+    mark gets updated with the data in the lasso.
+
+    The user can select (de-select) by clicking on lassos and can delete them
+    (and their associated data) by pressing the 'Delete' button.
+
+    Attributes
+    ----------
+    marks: List of marks which are instances of {Lines, Scatter} (default: [])
+        List of marks on which lasso selector will be applied.
+    color: Color (default: None)
+        Color of the lasso.
+    """
+    color = Color(None, allow_none=True).tag(sync=True)
+    selected_x = Array(None, allow_none=True).tag(sync=True, **array_serialization)
+    selected_y = Array(None, allow_none=True).tag(sync=True, **array_serialization)
+
+    _view_name = Unicode('LineSelector').tag(sync=True)
+    _model_name = Unicode('LineSelectorModel').tag(sync=True)
